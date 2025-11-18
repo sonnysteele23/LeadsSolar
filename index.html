@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Savings Calculator - Get Your Free Quote</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-gradient"></div>
+    <div class="bg-pattern"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="8" stroke="#FFA500" stroke-width="2"/>
+                    <path d="M20 4V8M20 32V36M36 20H32M8 20H4M30.6 30.6L27.8 27.8M12.2 12.2L9.4 9.4M30.6 9.4L27.8 12.2M12.2 27.8L9.4 30.6" stroke="#FFA500" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>SolarSave</span>
+            </div>
+            <div class="trust-badges">
+                <div class="badge">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Licensed & Insured</span>
+                </div>
+                <div class="badge">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#FFA500" stroke="#FFA500" stroke-width="2"/>
+                    </svg>
+                    <span>4.9/5 Rating</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1 class="hero-title">
+                Discover Your Solar Savings
+            </h1>
+            <p class="hero-subtitle">
+                See how much you can save with solar energy. Get your free personalized quote in 60 seconds.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">$2,400</div>
+                    <div class="stat-label">Avg. Annual Savings</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">25 Years</div>
+                    <div class="stat-label">System Warranty</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">$0 Down</div>
+                    <div class="stat-label">Financing Available</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Container -->
+        <div class="form-container">
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text">
+                    <span id="currentStep">1</span> of <span id="totalSteps">6</span>
+                </div>
+            </div>
+
+            <!-- Multi-Step Form -->
+            <form id="solarForm" class="solar-form">
+
+                <!-- Step 1: Location -->
+                <div class="form-step active" data-step="1">
+                    <div class="step-header">
+                        <h2>Where is your property located?</h2>
+                        <p>We'll check if solar is available in your area</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="zipCode">ZIP Code</label>
+                        <input type="text"
+                               id="zipCode"
+                               name="zipCode"
+                               placeholder="Enter your ZIP code"
+                               maxlength="5"
+                               pattern="[0-9]{5}"
+                               required>
+                        <div class="input-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Homeownership -->
+                <div class="form-step" data-step="2">
+                    <div class="step-header">
+                        <h2>Do you own your home?</h2>
+                        <p>Solar installations require homeownership</p>
+                    </div>
+                    <div class="options-grid">
+                        <button type="button" class="option-card" data-value="yes" onclick="selectOption(this, 'homeOwnership')">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>Yes, I Own</span>
+                        </button>
+                        <button type="button" class="option-card" data-value="no" onclick="selectOption(this, 'homeOwnership')">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M8 12H16M12 8V16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>No, I Rent</span>
+                        </button>
+                    </div>
+                    <input type="hidden" id="homeOwnership" name="homeOwnership" required>
+                </div>
+
+                <!-- Step 3: Electric Bill -->
+                <div class="form-step" data-step="3">
+                    <div class="step-header">
+                        <h2>What's your average monthly electric bill?</h2>
+                        <p>This helps us calculate your potential savings</p>
+                    </div>
+                    <div class="options-grid">
+                        <button type="button" class="option-card" data-value="0-100" onclick="selectOption(this, 'electricBill')">
+                            <div class="option-value">$0 - $100</div>
+                        </button>
+                        <button type="button" class="option-card" data-value="100-150" onclick="selectOption(this, 'electricBill')">
+                            <div class="option-value">$100 - $150</div>
+                        </button>
+                        <button type="button" class="option-card" data-value="150-200" onclick="selectOption(this, 'electricBill')">
+                            <div class="option-value">$150 - $200</div>
+                        </button>
+                        <button type="button" class="option-card" data-value="200-300" onclick="selectOption(this, 'electricBill')">
+                            <div class="option-value">$200 - $300</div>
+                        </button>
+                        <button type="button" class="option-card" data-value="300+" onclick="selectOption(this, 'electricBill')">
+                            <div class="option-value">$300+</div>
+                        </button>
+                    </div>
+                    <input type="hidden" id="electricBill" name="electricBill" required>
+                </div>
+
+                <!-- Step 4: Roof Type -->
+                <div class="form-step" data-step="4">
+                    <div class="step-header">
+                        <h2>What type of roof do you have?</h2>
+                        <p>Different roof types affect installation</p>
+                    </div>
+                    <div class="options-grid">
+                        <button type="button" class="option-card" data-value="shingle" onclick="selectOption(this, 'roofType')">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>Shingle/Asphalt</span>
+                        </button>
+                        <button type="button" class="option-card" data-value="tile" onclick="selectOption(this, 'roofType')">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 3L3 9L12 15L21 9L12 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                                <path d="M3 15L12 21L21 15" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Tile</span>
+                        </button>
+                        <button type="button" class="option-card" data-value="metal" onclick="selectOption(this, 'roofType')">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7V17L12 22L22 17V7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Metal</span>
+                        </button>
+                        <button type="button" class="option-card" data-value="flat" onclick="selectOption(this, 'roofType')">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="10" width="20" height="10" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>Flat</span>
+                        </button>
+                        <button type="button" class="option-card" data-value="other" onclick="selectOption(this, 'roofType')">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+                                <circle cx="6" cy="12" r="1.5" fill="currentColor"/>
+                                <circle cx="18" cy="12" r="1.5" fill="currentColor"/>
+                            </svg>
+                            <span>Other/Not Sure</span>
+                        </button>
+                    </div>
+                    <input type="hidden" id="roofType" name="roofType" required>
+                </div>
+
+                <!-- Step 5: Timeline -->
+                <div class="form-step" data-step="5">
+                    <div class="step-header">
+                        <h2>When are you looking to install solar?</h2>
+                        <p>This helps us prioritize your quote</p>
+                    </div>
+                    <div class="options-grid">
+                        <button type="button" class="option-card" data-value="asap" onclick="selectOption(this, 'timeline')">
+                            <div class="option-label">ASAP</div>
+                            <div class="option-sublabel">Ready to start now</div>
+                        </button>
+                        <button type="button" class="option-card" data-value="1-3months" onclick="selectOption(this, 'timeline')">
+                            <div class="option-label">1-3 Months</div>
+                            <div class="option-sublabel">Planning soon</div>
+                        </button>
+                        <button type="button" class="option-card" data-value="3-6months" onclick="selectOption(this, 'timeline')">
+                            <div class="option-label">3-6 Months</div>
+                            <div class="option-sublabel">Researching options</div>
+                        </button>
+                        <button type="button" class="option-card" data-value="6+months" onclick="selectOption(this, 'timeline')">
+                            <div class="option-label">6+ Months</div>
+                            <div class="option-sublabel">Just exploring</div>
+                        </button>
+                    </div>
+                    <input type="hidden" id="timeline" name="timeline" required>
+                </div>
+
+                <!-- Step 6: Contact Information -->
+                <div class="form-step" data-step="6">
+                    <div class="step-header">
+                        <h2>Get Your Free Quote</h2>
+                        <p>We'll send your personalized solar savings report</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        <div class="input-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M3 7L12 13L21 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+                        <div class="input-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 16.92V19.92C22 20.4696 21.5523 20.9167 21.0034 20.9201C18.3315 20.9468 15.7289 20.1641 13.4648 18.6592C11.3626 17.2736 9.63406 15.3938 8.4363 13.1855C6.91792 10.8699 6.14087 8.2028 6.18 5.48941C6.18437 4.94022 6.63226 4.49222 7.18 4.49222H10.18C10.7047 4.49222 11.1357 4.89226 11.1801 5.41452C11.2633 6.44531 11.4724 7.46101 11.802 8.43595C11.9387 8.83909 11.8095 9.28593 11.4862 9.56173L9.85882 10.9446C11.1631 13.0634 13.0186 14.9189 15.1374 16.2232L16.5202 14.5958C16.796 14.2725 17.2429 14.1433 17.646 14.28C18.6209 14.6096 19.6366 14.8187 20.6674 14.9019C21.1915 14.9464 21.592 15.3791 21.592 15.9056V18.9056L22 16.92Z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="privacy-notice">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 8V12M12 16H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Your information is secure and will never be shared. We respect your privacy.</span>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-secondary" id="prevBtn" onclick="changeStep(-1)">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Back
+                    </button>
+                    <button type="button" class="btn btn-primary" id="nextBtn" onclick="changeStep(1)">
+                        Continue
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Social Proof -->
+            <div class="social-proof">
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p>"Saved $3,200 in the first year alone. The installation was seamless and the team was professional."</p>
+                    <div class="author">— Sarah M., Phoenix AZ</div>
+                </div>
+                <div class="stats-row">
+                    <div class="mini-stat">
+                        <strong>12,000+</strong>
+                        <span>Homes Powered</span>
+                    </div>
+                    <div class="mini-stat">
+                        <strong>$45M+</strong>
+                        <span>Customer Savings</span>
+                    </div>
+                    <div class="mini-stat">
+                        <strong>25 Years</strong>
+                        <span>Warranty</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="success-icon">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="#10b981" stroke-width="2"/>
+                    <path d="M8 12L11 15L16 9" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h2>Thank You!</h2>
+            <p>Your solar savings report is being prepared. We'll contact you within 24 hours with your personalized quote.</p>
+            <div class="modal-details">
+                <div class="detail-row">
+                    <span>Email sent to:</span>
+                    <strong id="confirmEmail"></strong>
+                </div>
+                <div class="detail-row">
+                    <span>Phone:</span>
+                    <strong id="confirmPhone"></strong>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="closeModal()">Got it!</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
